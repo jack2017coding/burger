@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
 
-routher.get("/", function(req, res){
+router.get("/", function(req, res){
 	res.redirect("/burgers");
 });
 

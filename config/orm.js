@@ -26,7 +26,8 @@ var orm = {
 		var queryString = "SELECT * FROM " + tableInput + ";";
 		connection.query(queryString, function(err, result){
 			if (err) {
-				throw err;
+		console.error("error connecting: " + err.stack);
+		return;
 			}
 			cb(result);
 		});
@@ -45,7 +46,8 @@ var orm = {
 
 		connection.query(queryString, vals, function(err, result){
 			if (err) {
-				throw err;
+		console.error("error connecting: " + err.stack);
+		return;
 			}
 			cb(result);
 		});
@@ -61,7 +63,8 @@ var orm = {
 		console.log(queryString);
 		connection.query(queryString, function(err, result){
 			if (err){
-				throw err;
+		console.error("error connecting: " + err.stack);
+		return;
 			}
 			cb(result);
 		});

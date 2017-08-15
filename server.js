@@ -11,16 +11,18 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(methodOverride("_method"));
-var.exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/burgerController.js");
+var routes = require("./controllers/burgersController.js");
 
 app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
 
-app.listen(port);
+app.listen(PORT, function() {
+  console.log("Listening on port:%s", PORT);
+});
